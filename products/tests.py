@@ -10,9 +10,13 @@ from products.views import ProductView
 
 class ProductTest(TestCase):
 
-    def setUp(self) -> None:
+    @staticmethod
+    def create_dummy_products():
         for i in range(1, 15):
             Product.objects.create(name=f"Product Name {i}", price=100 * i, available_quantity=2 * i)
+
+    def setUp(self) -> None:
+        ProductTest().create_dummy_products()
 
     @property
     def url(self) -> str:
