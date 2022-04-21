@@ -29,6 +29,8 @@ decorator==5.1.1
     #   -r requirements.in
     #   ipdb
     #   ipython
+dj-database-url==0.5.0
+    # via -r requirements.in
 django==4.0.4
     # via
     #   -r requirements.in
@@ -40,6 +42,8 @@ executing==0.8.3
     #   -r requirements.in
     #   stack-data
 flake8==4.0.1
+    # via -r requirements.in
+gunicorn==20.1.0
     # via -r requirements.in
 ipdb==0.13.9
     # via -r requirements.in
@@ -83,6 +87,8 @@ prompt-toolkit==3.0.29
     # via
     #   -r requirements.in
     #   ipython
+psycopg2==2.9.3
+    # via -r requirements.in
 ptyprocess==0.7.0
     # via
     #   -r requirements.in
@@ -138,6 +144,8 @@ wcwidth==0.2.5
     #   prompt-toolkit
 wheel==0.37.1
     # via pip-tools
+whitenoise==6.0.0
+    # via -r requirements.in
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip
