@@ -80,6 +80,26 @@ class OrderTest(APITestCase):
         response = self.client.post(self.url, data=payload)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
+    def test_create_order_when_quantity_is_invalid__failure(self):
+        payload = {
+            "products": json.dumps([
+                {"product_id": "invalid-product-id", "quantity": "invalid-quantity"}
+            ])
+        }
+
+        response = self.client.post(self.url, data=payload)
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+    def test_create_order_when_quantity_is_less_than_1__failure(self):
+        payload = {
+            "products": json.dumps([
+                {"product_id": "invalid-product-id", "quantity": 0}
+            ])
+        }
+
+        response = self.client.post(self.url, data=payload)
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
     def test_create_order_with_a_single_product_when_quantity_requested_is_more_than_availability__failure(self):
         product_id, available_quantity = self.get_valid_product_details(1)
         payload = {
