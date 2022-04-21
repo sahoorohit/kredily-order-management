@@ -7,7 +7,7 @@ from products.models import Product
 
 class OrderCreateProductSerializer(serializers.Serializer):
     product_id = serializers.CharField(required=True)
-    quantity = serializers.IntegerField(default=1, required=False)
+    quantity = serializers.IntegerField(default=1, required=False, min_value=1)
 
 
 class OrderCreateSerializer(serializers.Serializer):
